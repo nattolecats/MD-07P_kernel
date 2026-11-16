@@ -1,0 +1,4 @@
+config SUNRITEL_TOOLS_KEYS_CTRL
+    tristate "sunritel keys ctrl driver"
+    help
+      Say Y here to use sunritel key led driver.

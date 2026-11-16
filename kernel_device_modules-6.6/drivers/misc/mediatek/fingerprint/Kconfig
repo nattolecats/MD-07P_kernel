@@ -1,0 +1,40 @@
+config MTK_FINGERPRINT_SUPPORT
+	tristate "STMicroelectronics NFC driver solution"
+	help
+	  STMicroelectronics Near Field Communication controller support.
+	  It is the master switch of STMicroelectronics NFC controller drivers.
+	  If configures to be y, FORTSENSE_FP and NFC_ST54_SPI will be
+	  selected.
+
+
+config FOCALTECH_FINGERPRINT
+	bool "FocalTech FingerPrint"
+	default n
+	help
+	the FocalTech's fingerprint sensor.
+
+config FOCALTECH_FINGERPRINT9391
+	tristate "FocalTech FingerPrint"
+	help
+	the FocalTech's fingerprint sensor.
+	
+config SILEAD_FP
+	tristate "SILEAD_FP driver solution"
+	help
+	  STMicroelectronics FORTSENSE Near Field Communication controller
+	  support. FORTSENSE is standalone NFC and ST54 is combined with secure
+	  element. If configures to be y, means devices supports NFC
+	  functionality. If configures to be n, means devices doesn't support
+	  NFC functionality.	  
+config GOODIX_FINGERPRINT
+	tristate "Goodix Fingerprint"
+	default n
+	help
+	  Goodix Fingerprint chip GF316M/GF318M/
+	  GF3118M/GF518M/GF5118M/GF516M/GF816M/
+	  GF3208/GF3206/GF3266/GF3288/GF5206/
+	  GF5216/GF5208 TEE driver
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/fingerprint/focaltech_fp/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/fingerprint/focaltech_fp9391/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/fingerprint/silead/Kconfig"
+source "$(KCONFIG_EXT_PREFIX)drivers/misc/mediatek/fingerprint/microarray_fp_tee/Kconfig"

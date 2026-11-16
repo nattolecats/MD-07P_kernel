@@ -1,0 +1,15 @@
+
+&i2c3{
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+	
+	st21nfc: nfc@08 {
+		compatible = "st,st21nfc";
+		reg = <0x08>;
+		status = "okay";
+		
+		reset-gpios = <&pio 19 0x0>;
+		irq-gpios = <&pio 28 0x0>;		
+	};
+};

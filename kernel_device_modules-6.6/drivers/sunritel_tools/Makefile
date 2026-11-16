@@ -1,0 +1,4 @@
+obj-$(CONFIG_SUNRITEL_TOOLS_KEYS_CTRL) += st_keys/
+obj-$(CONFIG_MTK_MODULE_POWER_SUPPORT) += module_power/
+obj-$(CONFIG_MTK_AW9610X_SAR) += aw9610x/
+

@@ -1,0 +1,132 @@
+&spi1 {
+       #address-cells = <1>;
+       #size-cells = <0>;
+       wk2xxxspi@0 {
+               compatible = "wkmic,wk2xxx_spi";//wk2124spi_cs0
+               reg = <0>;
+               spi-max-frequency = <1000000>;
+               irq_gpio = <&pio 105 0>;
+			   cs-gpios = <&pio 183 0>;
+			   reset_gpio = <&pio 104 0>;
+			   pwr_gpio = <&pio 190 0>;
+               status = "okay";
+       };
+};
+/*
+&pio {
+       spi_default: spi_default {
+          };
+       spiuart_rst_mode_low: spiuart_rst_low {
+           pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO104__FUNC_GPIO104>;
+                       slew-rate = <1>;
+                       output-low;
+           };
+       };
+       spiuart_rst_mode_high: spiuart_rst_high {
+           pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO104__FUNC_GPIO104>;
+                       slew-rate = <1>;
+                       output-high;
+           };
+        };
+       spiuart_power_mode_low: spiuart_power_low {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO190__FUNC_GPIO190>;
+                       slew-rate = <0>;
+                       bias-disable;
+               };
+       };
+       spiuart_power_mode_high: spiuart_power_high {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO190__FUNC_GPIO190>;
+                       slew-rate = <0>;
+                       bias-pull-down = <0>;
+               };
+       };
+
+       spi_cs_mode_low: spi_cs_low {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO183__FUNC_GPIO183>;
+                       slew-rate = <1>;
+                       output-low;
+               };
+       };
+       spi_cs_mode_high: spi_cs_high {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO183__FUNC_GPIO183>;
+                       slew-rate = <1>;
+                       output-high;
+               };
+       };
+       spi_cs_mode_set: spi_cs_set {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO183__FUNC_SPI1_CSB>;
+                       slew-rate = <1>;
+               };
+       };      
+       spi_mi_mode_low: spi_mi_low {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO184__FUNC_SPI1_MI>;
+                       slew-rate = <0>;
+               };
+       };
+       spi_mi_mode_high: spi_mi_high {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO184__FUNC_SPI1_MI>;
+                       bias-disable;
+               };
+       };      
+       spi_mo_mode_low: spi_mo_low {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO185__FUNC_SPI1_MO>;
+                       slew-rate = <1>;
+               };
+       };
+       spi_mo_mode_high: spi_mo_high {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO185__FUNC_SPI1_MO>;
+                       slew-rate = <1>;
+               };
+       };      
+       spi_mclk_mode_low: spi_mclk_low {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO182__FUNC_SPI1_CLK>;
+                       slew-rate = <1>;
+               };
+       };
+       spi_mclk_mode_high: spi_mclk_high {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO182__FUNC_SPI1_CLK>;
+                       slew-rate = <1>;
+               };
+       };      
+       
+       
+       
+       
+};
+
+&wk2xxx{       
+       pinctrl-names = "spi_default","spiuart_rst_low","spiuart_rst_high",
+                    "spiuart_power_low","spiuart_power_high",
+                                       "spi_cs_low","spi_cs_high","spi_mi_low","spi_mi_high",
+                                       "spi_mo_low","spi_mo_high","spi_mclk_low","spi_mclk_high","spi_cs_set";
+       pinctrl-0 = <&spi_default>;
+       pinctrl-1 = <&spiuart_rst_mode_low>;
+       pinctrl-2 = <&spiuart_rst_mode_high>;
+       pinctrl-3 = <&spiuart_power_mode_low>;
+       pinctrl-4 = <&spiuart_power_mode_high>;
+       pinctrl-5 = <&spi_cs_mode_low>;
+       pinctrl-6 = <&spi_cs_mode_high>;
+       pinctrl-7 = <&spi_mi_mode_low>;
+       pinctrl-8 = <&spi_mi_mode_high>;
+       pinctrl-9 = <&spi_mo_mode_low>;
+       pinctrl-10 = <&spi_mo_mode_high>;
+       pinctrl-11 = <&spi_mclk_mode_low>;
+       pinctrl-12 = <&spi_mclk_mode_high>;     
+       pinctrl-13 = <&spi_cs_mode_set>;
+       
+   status = "okay";
+};
+*/

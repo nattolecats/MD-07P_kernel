@@ -1,0 +1,42 @@
+// SPDX-License-Identifier: GPL-2.0+
+/*
+ * Copyright (c) 2019 MediaTek Inc.
+ */
+
+/* Please set primary/secondary charger to corresponding I2C bus */
+&i2c5 {
+	sd76030:sd76030@6b{
+		compatible = "bigmtech,sd76030";
+		reg = <0x6b>;
+		/*
+		 * Charger name
+		 * Main charger: primary_chg
+		 * Slave charger: secondary_chg
+		 */	
+		charger_name = "primary_chg";
+		alias_name   = "sd76030";
+		bigm,vlimit_mv = <4500>;
+		bigm,ilimit_ma = <2000>;
+		bigm,vsysmin_mv = <3400>;
+		bigm,cc_ma = <2000>;
+		bigm,cv_mv = <4400>;
+		bigm,pre_ma = <250>;
+		bigm,eoc_ma = <200>;
+		bigm,rechg_mv = <100>;
+		bigm,target_hv = <0>;
+		bigm,irq_gpio = <&pio 88 0>;
+		boot_mode = <&chosen>;
+		phys = <&u2port0 PHY_TYPE_USB2>;
+		phy-names = "usb2-phy";
+		usb = <&usb>;
+
+		sd76030_otg_vbus: usb-otg-vbus-regulator {
+			regulator-name = "usb-otg-vbus";
+			regulator-min-microvolt = <5000000>;
+			regulator-max-microvolt = <5000000>;
+			regulator-min-microamp = <500000>;
+			regulator-max-microamp = <1200000>;
+		};		
+		
+	};	
+};

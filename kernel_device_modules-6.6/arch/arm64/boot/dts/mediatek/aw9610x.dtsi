@@ -1,0 +1,14 @@
+&i2c6 {
+	status = "okay";
+	aw9610x_sar@12 {
+		compatible = "awinic,aw9610x_sar";
+		reg = <0x12>;
+		irq-gpio = <&pio 12 0>;
+		ldo_en = <&pio 169 0>;
+		aw9610x,using-firmware;
+		//vcc0-supply = <&pm660l_l4>;
+		channel_use_flag = <0x1f>;
+		sar-num = < 0 >;
+		status = "okay";
+	};
+};

@@ -1,0 +1,93 @@
+
+// {
+
+  //     dummy_camera: dummy_camera {
+  //          compatible = "mediatek,dummy_camera";
+   //    };
+//};
+
+
+&i2c2 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	clock-frequency = <400000>;
+	mediatek,use-open-drain;
+	camera_main_2_mtk:camera_main_2@21 {
+		compatible = "mediatek,camera_main_2";
+		reg = <0x21>;
+		status = "okay";
+	};
+
+
+};
+
+/*dummy_camera start*/
+&pio {
+       dummy_camera_default:dummy_camera_default{
+       };
+       dummy_camera_cam2_rst1: dummy_camera_cam2_rst@1 {
+           pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO37__FUNC_GPIO37>;
+                       slew-rate = <1>;
+            bias-disable;                      
+                       output-high;
+               };
+       };
+       dummy_camera_cam2_rst0: dummy_camera_cam2_rst@0 {
+           pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO37__FUNC_GPIO37>;
+                       slew-rate = <1>;
+                       bias-disable;
+                       output-low;
+               };
+       };
+       dummy_camera_cam2_pnd1: dummy_camera_cam2_pnd@1 {
+           pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO80__FUNC_GPIO80>;
+                       slew-rate = <1>;
+                       bias-disable;
+                       output-high;
+               };
+       };
+       dummy_camera_cam2_pnd0: dummy_camera_cam2_pnd@0 {
+           pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO80__FUNC_GPIO80>;
+                       slew-rate = <1>;
+                       bias-disable;
+                       output-low;
+               };
+       };      
+    
+
+    dummy_camera_pins_cam2_mclk_on: dummy_camera_pins_cam2_mclk_on {
+      pins_cmd_dat {
+        pinmux = <PINMUX_GPIO111__FUNC_CMMCLK3>;
+      };
+    };
+    dummy_camera_pins_cam2_mclk_off: dummy_camera_pins_cam2_mclk_off {
+      pins_cmd_dat {
+        pinmux = <PINMUX_GPIO111__FUNC_GPIO111>;
+      };
+    };
+
+};
+
+&dummy_camera {
+       pinctrl-names = "default",              "cam2_rst1",    "cam2_rst0",    "cam2_pnd1",    "cam2_pnd0",
+                                       "dummy_cam2_mclk_on","dummy_cam2_mclk_off";  
+       pinctrl-0  = <&dummy_camera_default>;
+       pinctrl-1  = <&dummy_camera_cam2_rst1>;
+       pinctrl-2  = <&dummy_camera_cam2_rst0>;
+       pinctrl-3  = <&dummy_camera_cam2_pnd1>;
+       pinctrl-4  = <&dummy_camera_cam2_pnd0>;        
+       pinctrl-5 = <&dummy_camera_pins_cam2_mclk_on>;
+       pinctrl-6 = <&dummy_camera_pins_cam2_mclk_off>;  
+
+
+       vcamio_main2-supply = <&mt_pmic_vcamio_ldo_reg>;
+       vcama_main2-supply = <&mt_pmic_vcama2_ldo_reg>;
+       vcamd_main2-supply = <&mt_pmic_vcamd_ldo_reg>;
+       status = "okay";
+};
+
+/*dummy_camera end*/

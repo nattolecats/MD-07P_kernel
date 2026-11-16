@@ -1,0 +1,321 @@
+config DRM_PANEL_JD9161Z_BOE_WVGA_VDO_ISP
+        tristate "BOE JD9161Z wvga vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for himax
+                vdo mode wvga panel. The panel has 480x800
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+
+config DRM_PANEL_FT8057S_HX_BOE_HDPLUS1600_VDO
+        tristate "BOE FT8057S hdplus1600 vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for himax
+                vdo mode hdplus1600 panel. The panel has 720x1600
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+				
+config DRM_PANEL_GC7202H_BOE_HDPLUS_VDO_DSI
+    tristate "BOE GC7202H hdplus dsi vdo mode panel"
+	depends on OF
+	depends on DRM_MIPI_DSI
+	depends on BACKLIGHT_CLASS_DEVICE
+	help
+	  Say Y here if you want to enable support for GC7202H
+                vdo mode hdplus panel. The panel has 720x1440
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+
+config DRM_PANEL_ICN9911C_BOE_HDPLUS_VDO_DSI
+    tristate "BOE ICN9911C hdplus dsi vdo mode panel"
+	depends on OF
+	depends on DRM_MIPI_DSI
+	depends on BACKLIGHT_CLASS_DEVICE
+	help
+	  Say Y here if you want to enable support for ICN9911C
+                vdo mode hdplus panel. The panel has 720x1440
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+
+config DRM_PANEL_ST7701S_BOE_WVGA_VDO_ISP
+        tristate "BOE ST7701S wvga vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for himax
+                vdo mode wvga panel. The panel has 480x800
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.				
+
+config DRM_PANEL_JD9365TG_HDPLUS1612_DSI_VDO_HKC656
+        tristate "INCELL JD9365TG HDPLUS1612 vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for himax
+                vdo mode wvga panel. The panel has 720x1612
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+				
+config DRM_PANEL_HI8561N_HDPLUS1612_DSI_VDO_HUAXING
+        tristate "INCELL HI8561N HDPLUS1612 vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for himax
+                vdo mode wvga panel. The panel has 720x1612
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+                
+config MTK_OCP2131_SUPPORT
+        tristate "MTK_OCP2131_SUPPORT"
+        help
+          If the platform is supported for MTK_OCP2131_SUPPORT, this 
+          configuration should be configured, and the MTK_OCP2131_SUPPORT
+          driver configuration should be configured as well
+
+config MTK_LT8911EXB_SUPPORT
+        tristate "MTK_LT8911EXB_SUPPORT"
+        help
+          If the platform is supported for MTK_LT8911EXB_SUPPORT, this 
+          configuration should be configured, and the MTK_LT8911EXB_SUPPORT
+          driver configuration should be configured as well
+		  
+config DRM_PANEL_FT8057S_HDPLUS1640_DSI_BOE
+        tristate "INCELL FT8057S HDPLUS1640 vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for himax
+                vdo mode wvga panel. The panel has 720x1640
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+
+config DRM_PANEL_HI8561E_HDPLUS1560_DSI_BOE
+        tristate "INCELL HI8561E HDPLUS1560 vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for himax
+                vdo mode wvga panel. The panel has 720x1560
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+
+
+config DRM_PANEL_GC7272_HDPLUS1640_DSI_BOE
+        tristate "INCELL GC7272 HDPLUS1640 vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for himax
+                vdo mode wvga panel. The panel has 720x1640
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.      
+
+config DRM_PANEL_JD9365_WUXGA_DSI_BOE
+        tristate "jd9365 wuxga dsi boe vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for himax
+                vdo mode wvga panel. The panel has 1200x1920
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host. 
+
+config DRM_PANEL_N080JCE_WUXGA_DSI_BOE
+        tristate "jd9365 wuxga dsi boe vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for himax
+                vdo mode wvga panel. The panel has 1200x1920
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host. 
+
+config DRM_PANEL_JD9365H3_WUXGA_DSI_BOE
+        tristate "jd9365 wuxga dsi boe vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for himax
+                vdo mode wvga panel. The panel has 800x1280
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host. 
+				
+config DRM_PANEL_HX8279D_WUXGA_DSI_BOE
+        tristate "hx8279d wuxga dsi boe vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for himax
+                vdo mode wvga panel. The panel has 1200x1920
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host. 
+
+config DRM_PANEL_FT8201_FHDP_VDO_DSI
+    tristate "dsi FT8201 fhdp dsi vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+          Say Y here if you want to enable support for FT8201
+                vdo mode hdplus panel. The panel has 1200x1920
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+
+config DRM_PANEL_JD9366TS_FHDP_VDO_DSI
+    tristate "dsi JD9366TS fhdp dsi vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+          Say Y here if you want to enable support for JD9366TS
+                vdo mode hdplus panel. The panel has 1200x1920
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+
+config DRM_PANEL_ICNL9951R_FHDP_VDO_DSI
+    tristate "dsi ICNL9951R fhdp dsi vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+          Say Y here if you want to enable support for ICNL9951R
+                vdo mode hdplus panel. The panel has 1200x1920
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+
+config DRM_PANEL_BOE545_BOE_HDPLUS_VDO_DSI
+    tristate "BOE 545 hdplus dsi vdo mode panel"
+	depends on OF
+	depends on DRM_MIPI_DSI
+	depends on BACKLIGHT_CLASS_DEVICE
+	help
+	  Say Y here if you want to enable support for BOE545
+                vdo mode hdplus panel. The panel has 720x1440
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+
+config DRM_PANEL_FT8719_FHDPLUS2300_BOE
+    tristate "dsi FT8719 fhdplus2300 dsi vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+          Say Y here if you want to enable support for FT8719
+                vdo mode hdplus panel. The panel has 1080x2340
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+
+config DRM_PANEL_ILI7807S_FHDPLUS_BOE
+    tristate "dsi ili7807s fhdplus dsi vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+          Say Y here if you want to enable support for ili7807s
+                vdo mode hdplus panel. The panel has 1080x2160
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+				
+config DRM_PANEL_LT8911EXB_FHD_EDP
+    tristate "dsi lt8911exb edp"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+          Say Y here if you want to enable support for lt8911exb
+                vdo mode hdplus panel. The panel has 1920x1080
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+				
+config DRM_PANEL_FT8752_FHDPLUS2300_BOE
+    tristate "dsi FT8752 fhdplus2300 dsi vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+          Say Y here if you want to enable support for FT8752
+                vdo mode hdplus panel. The panel has 1080x2340
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+
+config DRM_PANEL_NT36528A_HDPLUS1560_DSI_VDO_BOE
+    tristate "panel-nt36528a-hdplus1560-dsi-vdo-boe vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+          Say Y here if you want to enable support for NT36528A
+                vdo mode hdplus panel. The panel has 720x1560
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+
+config DRM_PANEL_BOE_HX8279D_VDO_HKQG_101
+	tristate "BOE UXGA vdo mode panel"
+	depends on OF
+	depends on DRM_MIPI_DSI
+	depends on BACKLIGHT_CLASS_DEVICE
+	help
+	  Say Y here if you want to enable support for BOE HX8279D VDO
+	  mode WXGA panel. The panel has a 1200x1600 resolution
+	  and uses 24-bits RGB per pixel. It provides a MIPI DSI interface
+	  to host.
+
+config DRM_PANEL_BOE_HX8279D_VDO_HKQG_101_EV8
+	tristate "BOE UXGA vdo mode panel"
+	depends on OF
+	depends on DRM_MIPI_DSI
+	depends on BACKLIGHT_CLASS_DEVICE
+	help
+	  Say Y here if you want to enable support for BOE HX8279D VDO
+	  mode WXGA panel. The panel has a 1200x1600 resolution
+	  and uses 24-bits RGB per pixel. It provides a MIPI DSI interface
+	  to host.
+config DRM_PANEL_ST7121P_HDPLUS1612_DSI_VDO_TIANMA
+        tristate "INCELL ST7121P HDPLUS1612 vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for st7121p
+                vdo mode wvga panel. The panel has 720x1612
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.
+
+config DRM_PANEL_HZ_ILI9881C_WXGA_VDO_HONGZHAN
+	tristate "HZ ILI9881C_WXGA_VDO panel"
+	depends on OF
+	depends on DRM_MIPI_DSI
+	depends on BACKLIGHT_CLASS_DEVICE
+	help
+	  Say Y here if you want to enable support for HZ ILI9881C_WXGA_VDO panel
+	  mode Full HD Plus panel. The panel has a 800x1280 resolution
+	  and uses 24-bits RGB per pixel. It provides a MIPI DSI interface
+	  to host.
+	  
+config DRM_PANEL_FT8057M_HDPLUS1600_DSI_VDO
+        tristate "FT8057M hdplus1600 vdo mode panel"
+        depends on OF
+        depends on DRM_MIPI_DSI
+        depends on BACKLIGHT_CLASS_DEVICE
+        help
+                Say Y here if you want to enable support for himax
+                vdo mode hdplus1600 panel. The panel has 720x1600
+                resolution and uses 24-bits RGB per pixel. It provides a
+                MIPI DSI interface to host.

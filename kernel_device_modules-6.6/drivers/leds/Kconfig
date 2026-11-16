@@ -1,0 +1,118 @@
+# SPDX-License-Identifier: GPL-2.0-only
+
+if NEW_LEDS
+
+config DEVICE_MODULES_LEDS_MT6360
+	tristate "LED Support for Mediatek MT6360 PMIC"
+	depends on LEDS_CLASS_FLASH && OF
+	depends on V4L2_FLASH_LED_CLASS || !V4L2_FLASH_LED_CLASS
+	depends on DEVICE_MODULES_MFD_MT6360
+	help
+	  This option enables support for dual Flash LED drivers found on
+	  Mediatek MT6360 PMIC.
+	  Support Torch and Strobe mode independently current source.
+	  Include Low-VF and short protection.
+
+config LEDS_MT6362
+	tristate "MT6362 SPMI LEDS driver"
+	depends on LEDS_CLASS_FLASH && OF
+	depends on V4L2_FLASH_LED_CLASS || !V4L2_FLASH_LED_CLASS
+	depends on REGULATOR_MT6362
+	help
+	  Say yes here to have support for the MT6362 LEDS
+	  Provide strobe and torch mode with flashlight, and
+	  indicator and moonlight with rgbled.
+
+	  The driver can also be build as a module.
+	  If so, the module will be called leds_mt6362
+
+config MTK_SUPPORT_AW2016
+	tristate "aw2016 Support"
+	depends on LEDS_CLASS
+	help
+	  RGB LED driver for aw2016 support.
+	  Set y to support. Set n to disable.
+
+config ST_LEDS_MT6370_RGB
+	tristate "LED Support for MediaTek MT6370 PMIC"
+	depends on DEVICE_MODULES_MFD_MT6370
+	select LINEAR_RANGES
+	help
+	  Say Y here to enable support for MT6370_RGB LED device.
+	  In MT6370, there are four channel current-sink LED drivers that
+	  support hardware pattern for constant current, PWM, and breath mode.
+	  Isink4 channel can also be used as a CHG_VIN power good indicator.
+
+	  This driver can also be built as a module. If so, the module
+	  will be called "leds-mt6370-rgb".
+	  
+config ST_LEDS_MT6370_BLED
+	tristate "MediaTek MT6370 Backlight Driver"
+	depends on DEVICE_MODULES_MFD_MT6370
+	help
+	  This enables support for Mediatek MT6370 Backlight driver.
+	  It's commonly used to drive the display WLED. There are 4 channels
+	  inside, and each channel supports up to 30mA of current capability
+	  with 2048 current steps (only for MT6370/MT6371) or 16384 current 
+	  steps (only for MT6372) in exponential or linear mapping curves.
+		
+	  This driver can also be built as a module. If so, the module
+	  will be called "mt6370-backlight".	  
+
+config LEDS_MTK
+	tristate "Mediatek COMMON LED support"
+	depends on LEDS_CLASS
+	help
+	  This option enables support for Mediatek common LEDs
+	  say 'y' to enable this
+
+	  To compile this driver as a module, choose 'M' here: the module
+	  will be called leds-mtk.
+
+config LEDS_MTK_PWM
+	tristate "Mediatek pwm LED support"
+	depends on LEDS_CLASS && LEDS_MTK
+	depends on DEVICE_MODULES_PWM_MTK_DISP
+	help
+	  This option enables support for Mediatek pwm LEDs.
+	  say 'y' to enable this
+
+	  To compile this driver as a module, choose 'M' here: the module
+	  will be called leds-mtk-pwm.
+
+config LEDS_MTK_DISP
+	tristate "Mediatek DISP LED support"
+	depends on LEDS_CLASS && LEDS_MTK
+	depends on MTK_CMDQ_MBOX_EXT
+	help
+	  This option enables support for Mediatek OLED Display LEDs
+	  say 'y' to enable this
+
+	  To compile this driver as a module, choose 'M' here: the module
+	  will be called leds-mtk-disp.
+
+config LEDS_MT_BRIGHTNESS_HW_CHANGED
+	bool "LED Class mt_brightness_hw_changed attribute support"
+	depends on LEDS_CLASS
+	help
+	  This option enables support for the mt_brightness_hw_changed attribute
+	  for LED sysfs class devices under /sys/class/leds.
+
+	  See Documentation/ABI/testing/sysfs-class-led for details
+	  this function is the same with brightness_hw_changed
+
+
+config LEDS_REGULATOR_VIBRATOR
+	tristate "LED regulator vibrator support"
+	depends on LEDS_CLASS
+	help
+	  This option enables support for LED regulator vibrator.
+	  say 'y' to enable this
+
+	  To compile this driver as a module, choose 'M' here: the module
+	  will be called regulator-vibrator.
+
+comment "Flash and Torch LED drivers"
+source "$(KCONFIG_EXT_PREFIX)drivers/leds/flash/Kconfig"
+
+endif # NEW_LEDS

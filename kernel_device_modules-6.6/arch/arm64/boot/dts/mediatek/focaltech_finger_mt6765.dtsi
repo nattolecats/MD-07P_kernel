@@ -1,0 +1,73 @@
+/*
+/ {
+	focaltech_finger: focaltech_finger {
+			compatible = "focaltech,focaltech_fp";
+	};
+};
+*/
+/* focaltech fingerprint ctrl start */
+
+&pio {
+	fingerprint_pins_rst_output0:fingerprint_pins_rst_output0@0{
+		    pins_cmd_dat {
+			pinmux = <PINMUX_GPIO173__FUNC_GPIO173>;
+			slew-rate = <1>;
+			output-low;
+		};
+	};
+	fingerprint_pins_rst_output1:fingerprint_pins_rst_output1@1{
+		    pins_cmd_dat {
+			pinmux = <PINMUX_GPIO173__FUNC_GPIO173>;
+			slew-rate = <1>;
+			output-high;
+		};
+	};
+	fingerprint_pins_eint_as_int: fingerprint_pins_eint_as_int@0{
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO112__FUNC_GPIO112>;
+			slew-rate = <0>;
+			bias-pull-up = <00>;
+		};
+	};
+};
+
+&focaltech_finger{
+
+	interrupt-parent = <&pio>;
+	interrupts = <112 IRQ_TYPE_LEVEL_LOW>;
+	debounce = <112 0>;
+	focaltech_fp,reset-gpio=<&pio 173 0>;
+	focaltech_fp,irq-gpio=<&pio 112 0>;
+
+	focaltech_fp,power-always-on;
+
+	focaltech_fp,read-chip;
+	
+	focaltech_fp,use-pinctrl;
+
+	pinctrl-names ="ff_pins_reset_low","ff_pins_reset_high","ff_pins_irq_as_int";
+	
+	pinctrl-0 = <&fingerprint_pins_rst_output0>;
+	pinctrl-1 = <&fingerprint_pins_rst_output1>;
+    pinctrl-2 = <&fingerprint_pins_eint_as_int>;
+
+	//vfp-supply = <&mt_pmic_vfp_ldo_reg>;
+
+	status = "okay";
+};
+
+&spi1 {
+	status = "okay";
+	#address-cells = <1>;     
+	#size-cells = <0>;
+ 	
+	spidev0: spi@0 {
+	  compatible = "focaltech,fpspi";
+	  reg = <0>;
+	  spi-max-frequency = <1000000>;                  
+	  fingerprint,touch-int-gpio = <&pio 112 0>;                 
+	  status = "okay";
+	};
+};
+
+/* microarray fingerprint ctrl end */

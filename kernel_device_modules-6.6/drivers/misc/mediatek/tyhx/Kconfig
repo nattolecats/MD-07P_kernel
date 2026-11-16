@@ -1,0 +1,6 @@
+config TYHX_SENSORHUB_TEST
+	tristate "TYHX_SENSORHUB_TEST driver"
+	default n
+	help
+	  driver for scp test
+

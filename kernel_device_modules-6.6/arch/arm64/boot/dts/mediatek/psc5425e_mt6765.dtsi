@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: GPL-2.0+
+/*
+ * Copyright (c) 2019 MediaTek Inc.
+ */
+
+/* Please set primary/secondary charger to corresponding I2C bus */
+&i2c6 {
+        psc5425e:psc5425e@6a{
+                       status = "okay";
+                       compatible = "mediatek,psc5425e";
+                       reg = <0x6a>;
+                       charger = <&mtk_charger_type>;
+                       charger_name = "primary_chg";
+                       otg_vbus: usb-otg-vbus {
+                               regulator-compatible = "usb-otg-vbus";
+                               regulator-name = "usb-otg-vbus";
+                               regulator-min-microvolt = <5000000>;
+                               regulator-max-microvolt = <5000000>;
+                       };
+               };
+};

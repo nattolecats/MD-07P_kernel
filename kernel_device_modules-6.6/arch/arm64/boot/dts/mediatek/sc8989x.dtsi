@@ -1,0 +1,42 @@
+// SPDX-License-Identifier: GPL-2.0+
+/*
+ * Copyright (c) 2019 MediaTek Inc.
+ */
+
+/* Please set primary/secondary charger to corresponding I2C bus */
+&i2c5 {
+	sc8989x_chg: sc8989x_chg@6a {
+	   	//charger = <&sc8989x_chg>;
+		compatible = "sc,sc8989x_charger";
+		reg = <0x6a>;
+		status = "okay";
+		charger_name = "primary_chg";
+		eint_name = "chr_stat";
+		sc,intr-gpio = <&pio 20 0>;
+		sc,in_det-gpio = <&pio 20 0>;
+		sc,sc8989x,usb-vlim = <4600>;
+		sc,sc8989x,usb-ilim = <500>;
+		sc,sc8989x,usb-vreg = <4400>;
+		sc,sc8989x,usb-ichg = <500>;
+		sc,sc8989x,precharge-current = <180>;
+		sc,sc8989x,termination-current = <240>;
+		sc,sc8989x,boost-voltage = <5150>;
+		sc,sc8989x,boost-current = <500>;
+		chg_name = "primary_chg";
+		boot_mode = <&chosen>;
+		
+		bc12_sel = <&mtk_ctd>;
+		phys = <&u2port0 PHY_TYPE_USB2>;
+		phy-names = "usb2-phy";
+		usb = <&usb>;
+
+		sc8989x_otg_vbus: usb-otg-vbus-regulator {
+			regulator-name = "usb-otg-vbus";
+			regulator-min-microvolt = <5000000>;
+			regulator-max-microvolt = <5000000>;
+			regulator-min-microamp = <500000>;
+			regulator-max-microamp = <1200000>;
+		};		
+		
+	};	
+};

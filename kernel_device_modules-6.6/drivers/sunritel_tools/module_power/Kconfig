@@ -1,0 +1,4 @@
+config MTK_MODULE_POWER_SUPPORT
+    tristate "sunritel modules power driver"
+    help
+      Say Y here to use sunritel modules power ctrl driver.

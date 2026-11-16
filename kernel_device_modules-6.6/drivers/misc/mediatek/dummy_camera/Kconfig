@@ -1,0 +1,9 @@
+config SUNRITEL_DCAM
+	tristate "SUNRITEL_DCAM  driver solution"
+	help
+	  SUNRITEL_DCAM Near Field Communication controller support.
+	  It is the master switch of SUNRITEL_DCAM  controller drivers.
+	  If configures to be y, SUNRITEL_DCAM and SUNRITEL_DCAM will be
+	  selected.
+
+

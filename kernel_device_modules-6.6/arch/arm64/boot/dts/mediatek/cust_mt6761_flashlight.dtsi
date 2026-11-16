@@ -1,0 +1,54 @@
+/************ FLASHLIGHT GPIO start ************/
+&pio {
+       camera_pins_pin_default: camfldefault@0 {
+       };
+
+       camera_pins_pin_fl_en0: camflen0@0 {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO152__FUNC_GPIO152>;
+                       slew-rate = <1>;
+                       bias-disable;
+                       output-low;
+               };
+       };
+
+       camera_pins_pin_fl_en1: camflen1@1 {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO152__FUNC_GPIO152>;
+                       slew-rate = <1>;
+                       bias-disable;
+                       output-high;
+               };
+       };
+
+       camera_pins_pin_fl_th0: camflth0@0 {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO151__FUNC_GPIO151>;
+                       slew-rate = <1>;
+                       bias-disable;
+                       output-low;
+               };
+       };
+
+       camera_pins_pin_fl_th1: camflth1@1 {
+               pins_cmd_dat {
+                       pinmux = <PINMUX_GPIO151__FUNC_GPIO151>;
+                       slew-rate = <1>;
+                       bias-disable;
+                       output-high;
+               };
+       };
+};
+
+&flashlights_main_gpio {
+       pinctrl-names = "default", "pin_fl_en0", "pin_fl_en1", "pin_fl_th0", "pin_fl_th1";
+       pinctrl-0 = <&camera_pins_pin_default>;
+       pinctrl-1 = <&camera_pins_pin_fl_en0>;
+       pinctrl-2 = <&camera_pins_pin_fl_en1>;
+       pinctrl-3 = <&camera_pins_pin_fl_th0>;
+       pinctrl-4 = <&camera_pins_pin_fl_th1>;
+       status = "okay";
+};
+
+
+/************ FLASHLIGHT GPIO  end  ************/

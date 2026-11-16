@@ -1,0 +1,113 @@
+/* silead fingerprint ctrl start */
+
+&spi5 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+	
+	silead_fp@0 {
+		compatible = "sil,silfp_ree";
+		reg = <0>;
+		spi-max-frequency = <8000000>;
+		status = "okay";
+	};
+};
+
+&silead_fp {
+    pinctrl-names = "default", "rst-low", "rst-high" ,
+					"irq-init", "spi-default", "irq_rst-low", "irq_rst-high";
+	pinctrl-0 = <&silfp_default>;
+	pinctrl-1 = <&silfp_rst_low>;
+	pinctrl-2 = <&silfp_rst_high>;
+	pinctrl-3 = <&silfp_irq>;
+	pinctrl-4 = <&fingerprint_pins_default>;
+	pinctrl-5 = <&silfp_irq_rst_low>;
+	pinctrl-6 = <&silfp_irq_rst_high>;
+	status = "okay";
+};
+
+&silead_spi {
+	pinctrl-names = "default";
+	pinctrl-0 = <&fingerprint_pins_default>;
+	status = "okay";
+};
+
+&silead_fp {
+	interrupt-parent = <&pio>;
+	interrupts = <7 IRQ_TYPE_EDGE_RISING 7 0>;
+	status = "okay";
+};
+
+&pio {
+	fingerprint_pins_default: fp_default {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO14__FUNC_SPI5_CSB>;
+			slew-rate = <1>;
+			bias-pull-up;
+		};
+		
+		pins_cmd2_dat {
+			pinmux = <PINMUX_GPIO16__FUNC_SPI5_CLK>;
+			slew-rate = <1>;
+			bias-pull-down;
+		};
+		
+		pins_cmd3_dat {
+			pinmux = <PINMUX_GPIO13__FUNC_SPI5_MI>;
+			slew-rate = <0>;
+			bias-pull-down;
+		};
+		
+		pins_cmd4_dat {
+			pinmux = <PINMUX_GPIO15__FUNC_SPI5_MO>;
+			slew-rate = <1>;
+			bias-pull-down;
+		};
+	};
+};
+
+&pio {
+    silfp_default: silfpdefault {
+    };
+
+    silfp_rst_high: state_reset_high {
+        pins_cmd_dat {
+            pinmux = <PINMUX_GPIO36__FUNC_GPIO36>;
+            slew-rate = <1>;
+            output-high;
+        };
+    };
+
+    silfp_rst_low: state_reset_low {
+        pins_cmd_dat {
+            pinmux = <PINMUX_GPIO36__FUNC_GPIO36>;
+            slew-rate = <1>;
+            output-low;
+        };
+    };
+
+    silfp_irq_rst_high: state_irq_to_reset_high {
+        pins_cmd_dat {
+            pinmux = <PINMUX_GPIO7__FUNC_GPIO7>;
+            slew-rate = <1>;
+            output-high;
+        };
+    };
+
+    silfp_irq_rst_low: state_irq_to_reset_low {
+        pins_cmd_dat {
+            pinmux = <PINMUX_GPIO7__FUNC_GPIO7>;
+            slew-rate = <1>;
+            output-low;
+        };
+    };
+    silfp_irq: fp_eint@15 {
+        pins_cmd_dat {
+		pinmux = <PINMUX_GPIO7__FUNC_GPIO7>;
+            slew-rate = <0>;
+            output-low;
+        };
+    };
+};		
+
+/* silead fingerprint ctrl end */

@@ -1,0 +1,10 @@
+#
+# galaxycore Touchscreen driver configuration
+#
+
+config TOUCHSCREEN_GALAXYCORE_SPI
+    bool "galaxycore spi Touchscreen"
+    default n
+    help
+      Say Y here if you have galaxycore touch panel.
+      If unsure, say N.

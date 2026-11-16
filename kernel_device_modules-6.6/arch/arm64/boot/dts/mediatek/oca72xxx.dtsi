@@ -1,0 +1,21 @@
+
+
+&i2c3 {
+/* OCS OCA72XXX Smart K PA */
+	spk:oca72xxx_pa@58 {
+		compatible = "ocs,oca72xxx_pa";
+		reg = <0x58>;
+	/*	reset-gpio = <&ap_gpio 1 0>; oca72390没有reset,oca72559需要打开*/
+		dev_index = < 0 >;
+		status = "okay";
+	};
+
+	oca72xxx_pa@59 {
+		compatible = "ocs,oca72xxx_pa";
+		reg = <0x59>;
+	/*	reset-gpio = <&ap_gpio 7 0>; oca72390没有reset,oca72559需要打开*/
+		dev_index = < 1 >;
+		status = "okay";
+	};
+/* OCS OCA72XXX Smart K PA End */
+};

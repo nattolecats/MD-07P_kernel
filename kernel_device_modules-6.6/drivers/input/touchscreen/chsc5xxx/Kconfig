@@ -1,0 +1,12 @@
+#
+# ChipSemi CHSC5XXX Touchscreen driver
+#
+
+
+config TOUCHSCREEN_MTK_CHSC5XXX
+    bool "CHSC5XXX Ts for Mediatek"
+    depends on I2C
+    default n
+    help
+      Say Y here if you have CHSC5XXX touch panel.
+      If unsure, say N.

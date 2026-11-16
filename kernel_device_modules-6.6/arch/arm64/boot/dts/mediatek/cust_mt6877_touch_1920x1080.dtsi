@@ -1,0 +1,40 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Copyright (c) 2021 MediaTek Inc.
+ */
+
+/* TOUCH start */
+&i2c0 {
+	clock-frequency = <400000>;
+    gt9xx@5d {
+	compatible = "goodix,gt9xx";
+	reg = <0x5d>; 
+	status = "okay";
+	interrupt-parent = <&pio>;
+	interrupts = <14 0x2800>;
+	reset-gpios = <&pio 15 0x0>;
+	irq-gpios = <&pio 14 0x0>;
+	irq-flags = <2>;
+	touchscreen-max-id = <11>;
+	touchscreen-size-x = <1920>;
+	touchscreen-size-y = <1080>;
+	touchscreen-max-w = <512>;
+	touchscreen-max-p = <512>;
+	touchscreen-key-map = <172>, <158>; /*KEY_HOMEPAGE=172, KEY_BACK=158，KEY_MENU=139*/	
+	goodix,slide-wakeup = <0>;
+	goodix,type-a-report = <0>;
+	goodix,driver-send-cfg = <0>;
+	goodix,resume-in-workqueue = <0>;
+	goodix,int-sync = <1>;
+	goodix,swap-x2y = <0>;
+	goodix,esd-protect = <1>;
+	goodix,auto-update-cfg = <0>;
+	oodix,auto-update = <0>;
+	goodix,power-off-sleep = <0>;
+	goodix,pen-suppress-finger = <0>;
+	goodix,cfg-group0 = [
+		53 D0 02 00 05 05 F5 D5 21 48 2D 0F 5A 41 0E 05 00 00 32 32 20 00 05 14 14 1A 14 8B 2B 00
+	];
+};
+};
+/* TOUCH end */

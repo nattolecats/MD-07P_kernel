@@ -1,0 +1,106 @@
+/* SPDX-License-Identifier: GPL-2.0 */
+/*
+ * Copyright (c) 2019 MediaTek Inc.
+*/
+
+/* TOUCH start */
+&pio{
+	spi_pins_0:spi0@1{
+		pins_cmd_dat{
+			pinmux = <PINMUX_GPIO19__FUNC_SPI2_MI>,
+				<PINMUX_GPIO17__FUNC_SPI2_MO>,
+				<PINMUX_GPIO18__FUNC_SPI2_CLK>,
+				<PINMUX_GPIO20__FUNC_SPI2_CSB>;
+				bias-disable;
+		};
+	};
+};
+&spi2 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi_pins_0>;
+	status = "okay";
+
+
+    focaltech@0 {
+        compatible = "focaltech,fts";
+        reg = <0x0>;
+        spi-max-frequency = <6000000>;
+        interrupt-parent = <&pio>;
+        interrupts = <0 IRQ_TYPE_EDGE_FALLING 1 0>;
+        focaltech,reset-gpio = <&pio 174 0>;
+        focaltech,irq-gpio = <&pio 0 0>;
+       // vdd-supply = <&mt6358_vio28_reg>;
+	//	focaltech,pwr-gpio = <&pio 34 0>;
+	//	focaltech,pwrvtp-gpio = <&pio 136 0>;
+        focaltech,max-touch-number = <10>;
+        focaltech,display-coords =  <0 0 720 1600>;
+        status = "okay";
+    };
+    
+    
+};
+&touch {
+	tpd-resolution = <720 1600>;
+	use-tpd-button = <0>;
+	tpd-key-num = <3>;
+	tpd-key-local= <139 172 158 0>;
+	tpd-key-dim-local = <90 883 100 40 230 883
+				100 40 370 883 100 40 0 0 0 0>;
+	tpd-max-touch-num = <10>;
+	tpd-filter-enable = <1>;
+	tpd-filter-pixel-density = <106>;
+	tpd-filter-custom-prameters = <0 0 0 0 0 0 0 0 0 0 0 0>;
+	tpd-filter-custom-speed = <0 0 0>;
+	pinctrl-names = "default", "state_eint_as_int",
+		"state_eint_output0", "state_eint_output1",
+		"state_rst_output0", "state_rst_output1";
+	pinctrl-0 = <&ctp_pins_default>;
+	pinctrl-1 = <&ctp_pins_eint_as_int>;
+	pinctrl-2 = <&ctp_pins_eint_output0>;
+	pinctrl-3 = <&ctp_pins_eint_output1>;
+	pinctrl-4 = <&ctp_pins_rst_output0>;
+	pinctrl-5 = <&ctp_pins_rst_output1>;
+	status = "okay";
+};
+&pio {
+	ctp_pins_default: eint0default {
+	};
+	ctp_pins_eint_as_int: eint1touch@0 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO0__FUNC_GPIO0>;
+			slew-rate = <0>;
+			bias-disable;
+		};
+	};
+	ctp_pins_eint_output0: eintoutput0 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO0__FUNC_GPIO0>;
+			slew-rate = <1>;
+			output-low;
+		};
+	};
+	ctp_pins_eint_output1: eintoutput1 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO0__FUNC_GPIO0>;
+			slew-rate = <1>;
+			output-high;
+		};
+	};
+	ctp_pins_rst_output0: rstoutput0 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO174__FUNC_GPIO174>;
+			slew-rate = <1>;
+			output-low;
+		};
+	};
+	ctp_pins_rst_output1: rstoutput1 {
+		pins_cmd_dat {
+			pinmux = <PINMUX_GPIO174__FUNC_GPIO174>;
+			slew-rate = <1>;
+			output-high;
+		};
+	};
+};
+/* TOUCH end */

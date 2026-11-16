@@ -1,0 +1,51 @@
+
+void ocp2131_set_avdd_voltage(unsigned int voltagelevel);
+void ocp2131_set_avee_voltage(unsigned int voltagelevel);
+enum ocp2131_avdd_state {
+        OCP2131_AVDD_4000V = 0,
+        OCP2131_AVDD_4100V = 1,	
+        OCP2131_AVDD_4200V = 2,	
+        OCP2131_AVDD_4300V = 3,	
+        OCP2131_AVDD_4400V = 4,	
+        OCP2131_AVDD_4500V = 5,	
+        OCP2131_AVDD_4600V = 6,		
+        OCP2131_AVDD_4700V = 7,	
+        OCP2131_AVDD_4800V = 8,	
+        OCP2131_AVDD_4900V = 9,	
+        OCP2131_AVDD_5000V = 10,	
+        OCP2131_AVDD_5100V = 11,	
+        OCP2131_AVDD_5200V = 12,	
+        OCP2131_AVDD_5300V = 13,	
+        OCP2131_AVDD_5400V = 14,	
+        OCP2131_AVDD_5500V = 15,	
+        OCP2131_AVDD_5600V = 16,	
+        OCP2131_AVDD_5700V = 17,	
+        OCP2131_AVDD_5800V = 18,	
+        OCP2131_AVDD_5900V = 19,	
+        OCP2131_AVDD_6000V = 20,	
+};
+
+enum ocp2131_avee_state {
+        OCP2131_AVEE_4000V = 0,
+        OCP2131_AVEE_4100V = 1,	
+        OCP2131_AVEE_4200V = 2,	
+        OCP2131_AVEE_4300V = 3,	
+        OCP2131_AVEE_4400V = 4,	
+        OCP2131_AVEE_4500V = 5,	
+        OCP2131_AVEE_4600V = 6,		
+        OCP2131_AVEE_4700V = 7,	
+        OCP2131_AVEE_4800V = 8,	
+        OCP2131_AVEE_4900V = 9,	
+        OCP2131_AVEE_5000V = 10,	
+        OCP2131_AVEE_5100V = 11,	
+        OCP2131_AVEE_5200V = 12,	
+        OCP2131_AVEE_5300V = 13,	
+        OCP2131_AVEE_5400V = 14,	
+        OCP2131_AVEE_5500V = 15,	
+        OCP2131_AVEE_5600V = 16,	
+        OCP2131_AVEE_5700V = 17,	
+        OCP2131_AVEE_5800V = 18,	
+        OCP2131_AVEE_5900V = 19,	
+        OCP2131_AVEE_6000V = 20,	
+};
+

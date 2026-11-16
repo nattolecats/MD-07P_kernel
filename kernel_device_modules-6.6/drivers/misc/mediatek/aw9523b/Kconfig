@@ -1,0 +1,9 @@
+
+config AW9523B
+	tristate "aw9523b driver spec"
+	help
+		say Y to enable aw9523b driver spec.
+		
+
+	
+

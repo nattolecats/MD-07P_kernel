@@ -1,0 +1,2 @@
+obj-$(CONFIG_SUNRITEL_TOOLS_KEYS_CTRL) += st_keys.o
+

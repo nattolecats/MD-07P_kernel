@@ -1,0 +1,136 @@
+&i2c6 {
+	status = "okay";
+	aw9523b_led@58 {
+		compatible = "awinic,aw9523b";
+		reg = <0x58>; //addr
+		reset-gpio = <&pio 104 0>; //rst gpio
+		irq-gpio = <&pio 103 0>; //irq gpio
+		ext_1v8-gpio = <&pio 139 0>; //ext 1.8v power en gpio
+//		aw9523b_power-supply = <&pm8909_l6>; //VCC
+		aw9523b,single_key_enable = <0>; //enable single key function, 0 to disable
+		aw9523b,matrix_key_enable = <0>; //enable matrix key function, 0 to disable
+		aw9523b,led_enable = <0>; //enabel led function, 0 to disable
+		aw9523b,gpio_enable = <1>; //enable gpio function, 0 to disable
+		hub-channel = < 0 >;
+		status = "okay";
+		aw9523b,key{
+			aw9523b,input_port_mask = <0x000F>; // 0000 1111 0000 0000 Identifies the pin port for the input. here: P1_0-P1_3
+			aw9523b,output_port_mask = <0x3F00>; //1111 0000 0000 0000 Identifies the pin port for the output here: P1_4-P1_7
+		};
+		aw9523b,led {
+			aw9523b,default_imax = <0x00>;
+			led1{
+				aw9523b,name = "lcd-backlight"; //cdev name
+				aw9523b,idx_count = <1>; //The number of ports used
+				aw9523b,idx = <0x00>; //The specific port identifier used, This is used here: P0_0
+				aw9523b,default_brightness = <255>;
+				aw9523b,max_brightness = <255>;
+			};
+			led2{
+				aw9523b,name = "led2";
+				aw9523b,idx_count = <1>;////The number of ports used
+				aw9523b,idx = <0x01>;//The specific port identifier used, This is used here:P0_1
+				aw9523b,default_brightness = <255>;
+				aw9523b,max_brightness = <255>;
+			};
+			led3{
+				aw9523b,name = "led3";
+				aw9523b,idx_count = <1>;
+				aw9523b,idx = <0x02>; //The specific port identifier used, This is used here:P0_2
+				aw9523b,default_brightness = <255>;
+				aw9523b,max_brightness = <255>;
+			};
+			led4{
+				aw9523b,name = "led4";
+				aw9523b,idx_count = <1>;
+				aw9523b,idx = <0x03>; //The specific port identifier used, This is used here:P0_3
+				aw9523b,default_brightness = <255>;
+				aw9523b,max_brightness = <255>;
+			};
+		};
+		aw9523b,gpio{
+			aw9523b,gpio_mode = <1>;
+			gpio1{
+				aw9523b,gpio_idx = <0>; // The specific port identifier used, This is used here:P0_4
+				aw9523b,gpio_dir = <1>; // The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <1>;
+			};
+			gpio2{
+				aw9523b,gpio_idx = <1>; // The specific port identifier used, This is used here:P0_5
+				aw9523b,gpio_dir = <1>; //The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <0>;
+			};
+			gpio3{
+				aw9523b,gpio_idx = <2>; // The specific port identifier used, This is used here:P0_6
+				aw9523b,gpio_dir = <1>; //The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <1>;
+			};
+			gpio4{
+				aw9523b,gpio_idx = <3>; // The specific port identifier used, This is used here:P0_7
+				aw9523b,gpio_dir = <1>; //The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <1>;
+			};
+			gpio5{
+				aw9523b,gpio_idx = <4>; // The specific port identifier used, This is used here:P0_4
+				aw9523b,gpio_dir = <1>; // The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <1>;
+			};
+			gpio6{
+				aw9523b,gpio_idx = <5>; // The specific port identifier used, This is used here:P0_5
+				aw9523b,gpio_dir = <1>; //The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <0>;
+			};
+			gpio7{
+				aw9523b,gpio_idx = <6>; // The specific port identifier used, This is used here:P0_6
+				aw9523b,gpio_dir = <1>; //The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <0>;
+			};
+			gpio8{
+				aw9523b,gpio_idx = <7>; // The specific port identifier used, This is used here:P0_7
+				aw9523b,gpio_dir = <1>; //The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <1>;
+			};	
+/*P1*/
+			gpio9{
+				aw9523b,gpio_idx = <8>; // The specific port identifier used, This is used here:P0_4
+				aw9523b,gpio_dir = <1>; // The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <0>;
+			};
+			gpio10{
+				aw9523b,gpio_idx = <9>; // The specific port identifier used, This is used here:P0_5
+				aw9523b,gpio_dir = <1>; //The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <1>;
+			};
+			gpio11{
+				aw9523b,gpio_idx = <10>; // The specific port identifier used, This is used here:P0_6
+				aw9523b,gpio_dir = <1>; //The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <0>;
+			};
+			gpio12{
+				aw9523b,gpio_idx = <11>; // The specific port identifier used, This is used here:P0_7
+				aw9523b,gpio_dir = <1>; //The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <0>;
+			};
+			gpio13{
+				aw9523b,gpio_idx = <12>; // The specific port identifier used, This is used here:P0_4
+				aw9523b,gpio_dir = <1>; // The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <0>;
+			};
+			gpio14{
+				aw9523b,gpio_idx = <13>; // The specific port identifier used, This is used here:P0_5
+				aw9523b,gpio_dir = <1>; //The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <1>;
+			};
+			gpio15{
+				aw9523b,gpio_idx = <14>; // The specific port identifier used, This is used here:P0_6
+				aw9523b,gpio_dir = <1>; //The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <0>;
+			};
+			gpio16{
+				aw9523b,gpio_idx = <15>; // The specific port identifier used, This is used here:P0_7
+				aw9523b,gpio_dir = <1>; //The specific port work in output(1) or input(0)
+				aw9523b,gpio_default_val = <1>;
+			};			
+		};
+	};
+};
